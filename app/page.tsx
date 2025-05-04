@@ -1,17 +1,116 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Navbar from '@/components/navbar';
+import Hero from '@/components/hero';
+import Services from '@/components/services';
+import Projects from '@/components/projects';
+import Contact from '@/components/contact';
+import Footer from '@/components/footer';
+import ParticleBackground from '@/components/particle-background';
+import AboutUs from '@/components/about-us';
+import AboutUsStats from '@/components/about-us-stats';
+import WhyChooseUs from '@/components/why-choose-us';
+import LoadingScreen from '@/components/loading-screen';
+import { useInView } from 'react-intersection-observer';
+
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+  const [activeSection, setActiveSection] = useState('hero');
+
+  // Initialize smooth scroll behavior
+  useEffect(() => {
+    // Add smooth scrolling to all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        e.preventDefault();
+        const href = (e.currentTarget as HTMLAnchorElement).getAttribute(
+          'href'
+        );
+        if (!href) return;
+
+        const targetElement = document.querySelector(href);
+        if (!targetElement) return;
+
+        window.scrollTo({
+          top: targetElement.getBoundingClientRect().top + window.scrollY - 100,
+          behavior: 'smooth',
+        });
+      });
+    });
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Track active section based on scroll position
+  useEffect(() => {
+    const sections = [
+      { id: 'hero', element: document.getElementById('hero') },
+      { id: 'about', element: document.getElementById('about') },
+      { id: 'services', element: document.getElementById('services') },
+      {
+        id: 'why-choose-us',
+        element: document.getElementById('why-choose-us'),
+      },
+      { id: 'projects', element: document.getElementById('projects') },
+      { id: 'contact', element: document.getElementById('contact') },
+    ];
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (!section.element) continue;
+
+        const offsetTop = section.element.offsetTop;
+        if (scrollPosition >= offsetTop) {
+          setActiveSection(section.id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-blue-400">
-          <span className="gradient-text">QuantumKit</span>
-          <br />
-          Modern Software Solutions
-        </h1>
-        <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl mx-auto lg:mx-0">
-          Transforming Ideas Into Digital Reality. We specialize in Mobile Apps,
-          Web Development, AI Integration, and Custom Software Development.
-        </p>
-      </main>
-    </div>
+    <AnimatePresence mode="wait">
+      {loading ? (
+        <LoadingScreen key="loading" />
+      ) : (
+        <motion.main
+          key="main"
+          className="min-h-screen relative overflow-hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <ParticleBackground />
+          <div className="relative z-10">
+            <Navbar activeSection={activeSection} />
+            <div className="fixed-header-spacing">
+              <Hero />
+              <AboutUs />
+              <AboutUsStats />
+              <Services />
+              <WhyChooseUs />
+              <Projects />
+              <Contact />
+              <Footer />
+            </div>
+          </div>
+        </motion.main>
+      )}
+    </AnimatePresence>
   );
 }
