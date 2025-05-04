@@ -2,7 +2,7 @@ import type { NextConfig } from 'next';
 import { resolve } from 'path';
 
 const repositoryName = 'quantum-kit-website';
-const basePath = process.env.PAGES_BASE_PATH || `/${repositoryName}`;
+const basePath = process.env.PAGES_BASE_PATH || '';
 
 const nextConfig: NextConfig = {
   transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
@@ -26,7 +26,7 @@ const nextConfig: NextConfig = {
   },
   output: 'export',
   basePath,
-  assetPrefix: `${basePath}/`,
+  assetPrefix: `${basePath}${repositoryName}`,
 };
 
 export default nextConfig;
