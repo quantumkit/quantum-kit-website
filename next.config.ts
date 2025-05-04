@@ -1,14 +1,7 @@
-// import type { NextConfig } from 'next';
-
-// const nextConfig: NextConfig = {
-//   output: 'export',
-//   basePath: process.env.PAGES_BASE_PATH,
-// };
-
-// export default nextConfig;
-
 import type { NextConfig } from 'next';
 import { resolve } from 'path';
+
+const basePath = process.env.PAGES_BASE_PATH || '';
 
 const nextConfig: NextConfig = {
   transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
@@ -30,9 +23,9 @@ const nextConfig: NextConfig = {
     };
     return config;
   },
-  // Optional: You can include these if needed
   output: 'export',
-  basePath: process.env.PAGES_BASE_PATH,
+  basePath,
+  assetPrefix: basePath ? `${basePath}/` : '',
 };
 
 export default nextConfig;
