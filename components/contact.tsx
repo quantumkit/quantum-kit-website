@@ -1,7 +1,5 @@
 'use client';
 
-import type React from 'react';
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -9,24 +7,69 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react';
 
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
       setIsSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      });
 
       // Reset form after 3 seconds
       setTimeout(() => {
         setIsSubmitted(false);
       }, 3000);
-    }, 1500);
+    } catch (err) {
+      setError('Failed to send message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -128,6 +171,8 @@ export default function Contact() {
                       id="name"
                       placeholder="Your name"
                       required
+                      value={formData.name}
+                      onChange={handleChange}
                       disabled={isSubmitting || isSubmitted}
                       className="focus-ring"
                     />
@@ -142,6 +187,8 @@ export default function Contact() {
                       type="email"
                       placeholder="Your email"
                       required
+                      value={formData.email}
+                      onChange={handleChange}
                       disabled={isSubmitting || isSubmitted}
                       className="focus-ring"
                     />
@@ -156,6 +203,8 @@ export default function Contact() {
                     id="subject"
                     placeholder="Subject"
                     required
+                    value={formData.subject}
+                    onChange={handleChange}
                     disabled={isSubmitting || isSubmitted}
                     className="focus-ring"
                   />
@@ -170,10 +219,14 @@ export default function Contact() {
                     placeholder="Your message"
                     rows={4}
                     required
+                    value={formData.message}
+                    onChange={handleChange}
                     disabled={isSubmitting || isSubmitted}
                     className="focus-ring"
                   />
                 </div>
+
+                {error && <p className="text-red-500 text-sm">{error}</p>}
 
                 <Button
                   type="submit"
