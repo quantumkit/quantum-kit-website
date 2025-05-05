@@ -13,7 +13,6 @@ import AboutUs from '@/components/about-us';
 import AboutUsStats from '@/components/about-us-stats';
 import WhyChooseUs from '@/components/why-choose-us';
 import LoadingScreen from '@/components/loading-screen';
-import { useInView } from 'react-intersection-observer';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -34,7 +33,7 @@ export default function Home() {
         if (!targetElement) return;
 
         window.scrollTo({
-          top: targetElement.getBoundingClientRect().top + window.scrollY - 100,
+          top: targetElement.getBoundingClientRect().top + window.scrollY - 80,
           behavior: 'smooth',
         });
       });

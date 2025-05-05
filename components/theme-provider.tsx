@@ -1,7 +1,5 @@
 'use client';
 
-import type React from 'react';
-
 import { createContext, useContext, useEffect, useState } from 'react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -53,7 +51,7 @@ export function ThemeProvider({
 
   return (
     <NextThemesProvider
-      attribute={attribute}
+      attribute={attribute as 'class' | undefined}
       defaultTheme={defaultTheme}
       enableSystem={enableSystem}
       disableTransitionOnChange={disableTransitionOnChange}

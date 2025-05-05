@@ -7,13 +7,11 @@ import {
   useGLTF,
   Environment,
   Float,
-  Text3D,
-  Center,
   Sparkles,
 } from '@react-three/drei';
 import { useTheme } from 'next-themes';
 import * as THREE from 'three';
-import { MathUtils, Mesh, Group, Object3D } from 'three';
+import { MathUtils } from 'three';
 
 // Prevent model loading issues
 const MODEL_URL = '/assets/3d/duck.glb';
