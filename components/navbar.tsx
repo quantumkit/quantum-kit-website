@@ -27,6 +27,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -34,6 +35,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
     { href: '#hero', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#services', label: 'Services' },
+    { href: '#why-choose-us', label: 'Why Us' },
     { href: '#projects', label: 'Projects' },
     { href: '#contact', label: 'Contact' },
   ];

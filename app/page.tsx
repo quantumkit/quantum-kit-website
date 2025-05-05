@@ -49,34 +49,33 @@ export default function Home() {
   // Track active section based on scroll position
   useEffect(() => {
     const sections = [
-      { id: 'hero', element: document.getElementById('hero') },
-      { id: 'about', element: document.getElementById('about') },
-      { id: 'services', element: document.getElementById('services') },
-      {
-        id: 'why-choose-us',
-        element: document.getElementById('why-choose-us'),
-      },
-      { id: 'projects', element: document.getElementById('projects') },
-      { id: 'contact', element: document.getElementById('contact') },
+      { id: 'hero' },
+      { id: 'about' },
+      { id: 'services' },
+      { id: 'why-choose-us' },
+      { id: 'projects' },
+      { id: 'contact' },
     ];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 3;
 
+      let currentSection = 'hero'; // fallback/default
       for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (!section.element) continue;
+        const section = document.getElementById(sections[i].id);
+        if (!section) continue;
 
-        const offsetTop = section.element.offsetTop;
-        if (scrollPosition >= offsetTop) {
-          setActiveSection(section.id);
+        const offsetTop = section.offsetTop;
+        if (offsetTop <= scrollPosition) {
+          currentSection = sections[i].id;
           break;
         }
       }
+      setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
