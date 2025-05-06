@@ -17,7 +17,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <Link
-                href="#"
+                href="https://github.com/quantumkit/"
                 className="text-foreground/70 hover:text-primary transition-colors"
               >
                 <Github className="h-5 w-5" />
@@ -31,7 +31,7 @@ export default function Footer() {
                 <span className="sr-only">Twitter</span>
               </Link>
               <Link
-                href="#"
+                href="https://www.linkedin.com/company/quantamkit/"
                 className="text-foreground/70 hover:text-primary transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
@@ -52,7 +52,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#"
+                  href="#services"
                   className="text-foreground/70 hover:text-primary transition-colors"
                 >
                   Mobile App Development
@@ -60,7 +60,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="#services"
                   className="text-foreground/70 hover:text-primary transition-colors"
                 >
                   Web Development
@@ -68,7 +68,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="#services"
                   className="text-foreground/70 hover:text-primary transition-colors"
                 >
                   AI Integration
@@ -76,7 +76,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="#services"
                   className="text-foreground/70 hover:text-primary transition-colors"
                 >
                   Custom Software
@@ -90,10 +90,18 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#"
+                  href="#about"
                   className="text-foreground/70 hover:text-primary transition-colors"
                 >
                   About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#services"
+                  className="text-foreground/70 hover:text-primary transition-colors"
+                >
+                  Services
                 </Link>
               </li>
               <li>
@@ -102,14 +110,6 @@ export default function Footer() {
                   className="text-foreground/70 hover:text-primary transition-colors"
                 >
                   Careers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="text-foreground/70 hover:text-primary transition-colors"
-                >
-                  Blog
                 </Link>
               </li>
               <li>
@@ -141,7 +141,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="tel:+15551234567"
+                  href="tel:+251974894532"
                   className="text-foreground/70 hover:text-primary transition-colors"
                 >
                   +251-974-894532
