@@ -47,11 +47,14 @@ const projects = [
     tags: ['Security', 'Biometrics', 'Mobile App'],
   },
   {
-    title: 'SmartCity Dashboard',
+    title: 'My science lab',
     description:
-      'An IoT-based dashboard for monitoring and managing city infrastructure, including traffic, utilities, and public services.',
-    image: '/placeholder.svg?height=600&width=800',
-    tags: ['IoT', 'Dashboard', 'Data Visualization'],
+      'A platform that provides a interactive and engaging science learning experience for students. with VR/AR, 3D models, and real-time simulations. AI and chatbot, generative AI, and personalized learning.',
+    image: '/myscy.png',
+    background: 'bg-gray-500',
+    customStyle: 'w-8 h-8',
+    link: 'https://www.myscielab.us/',
+    tags: ['Science', 'Education', 'Mobile App'],
   },
 ];
 
