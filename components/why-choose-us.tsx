@@ -96,12 +96,12 @@ export default function WhyChooseUs() {
       glow: 'amber',
     },
     {
-      name: 'Elena Rodriguez',
-      position: 'Marketing Director',
-      company: 'Nexus Digital',
+      name: 'kevindirectie',
+      position: 'CEO',
+      company: 'Seragii',
       image: '/placeholder.svg?height=80&width=80',
       quote:
-        "Our e-commerce platform's performance improved by 200% after QuantumKit's optimization work. The attention to detail and user experience considerations were impressive.",
+        "Always available to help and give advice. Excellent communicator. Very good hearted team. I highly recommend them.",
       rating: 5,
       color: 'from-green-500 to-emerald-400',
       glow: 'green',
