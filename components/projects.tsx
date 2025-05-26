@@ -23,20 +23,27 @@ const projects = [
       'An AI-powered  platform that helps student at any grade level and help them improve their skill',
     image: '/skill-palace.png',
     background: 'bg-blue-500',
+    link: 'https://skillspalace.com/',
     tags: ['AI', 'Machine Learning', 'Web App'],
   },
   {
-    title: 'QuantumCommerce',
+    title: 'Kindly solar energy',
     description:
-      'A next-generation e-commerce solution with integrated payment processing, inventory management, and customer analytics.',
-    image: '/placeholder.svg?height=600&width=800',
-    tags: ['E-commerce', 'Mobile App', 'Web App'],
+      'A solar energy company that provides solar panel installation and maintenance services.',
+    image: '/placeholder.svg?height=600&width=80',
+    background: 'bg-gray-500',
+    customStyle: 'object-cover',
+    link: 'https://kindly-camping.de/bibliothek/',
+    tags: ['E-commerce', 'Mobile App', 'Energy calculator', 'Web App'],
   },
   {
-    title: 'BioMetric Security',
+    title: 'Your english today',
     description:
-      'A biometric authentication system for high-security environments, featuring facial recognition and fingerprint scanning.',
-    image: '/placeholder.svg?height=600&width=800',
+      'A platform that helps students improve their English language skills through interactive lessons and personalized feedback.',
+    image: '/yet.png',
+    background: 'bg-gray-500',
+    customStyle: 'object-contain',
+    link: 'https://yourenglishtoday.it/',
     tags: ['Security', 'Biometrics', 'Mobile App'],
   },
   {
@@ -126,14 +133,16 @@ export default function Projects() {
               <Card className="h-full overflow-hidden border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:shadow-md hover:border-primary/30">
                 <div
                   className={`relative h-48 overflow-hidden ${
-                    project.background || 'bg-blue-500'
+                    project.background || 'bg-gray-500'
                   }`}
                 >
                   <Image
                     src={project.image || '/placeholder.svg'}
                     alt={project.title}
                     fill
-                    className="object-contain w-[80%] h-[90%] transition-transform duration-500 group-hover:scale-105"
+                    className={`object-contain w-[80%] h-[90%] transition-transform duration-500 group-hover:scale-105 ${
+                      project.customStyle || ''
+                    }`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <div className="flex flex-wrap gap-2">
