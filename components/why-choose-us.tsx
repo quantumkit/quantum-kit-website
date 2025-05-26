@@ -63,23 +63,23 @@ export default function WhyChooseUs() {
 
   const testimonials = [
     {
-      name: 'Alex Brennan',
+      name: 'Chris',
       position: 'CEO',
-      company: 'TechVision Inc.',
+      company: 'Pets-pics',
       image: '/placeholder.svg?height=80&width=80',
       quote:
-        "QuantumKit transformed our business with their innovative solutions. Their team's expertise and dedication to quality exceeded our expectations at every stage of development.",
+        "Quantumkit are fantastic developers. Superb understanding of what we needed and really brought our ideas to life. I would thoroughly recommend them. In fact we are continuing to work with them for future projects. The best endorsement I think.",
       rating: 5,
       color: 'from-blue-500 to-cyan-400',
       glow: 'blue',
     },
     {
-      name: 'Sarah Johnson',
-      position: 'CTO',
-      company: 'Innovate Labs',
+      name: 'Mohamed Asfoor',
+      position: 'CEO',
+      company: 'skills-palace',
       image: '/placeholder.svg?height=80&width=80',
       quote:
-        'Working with QuantumKit was a game-changer for our startup. Their technical expertise and strategic guidance helped us launch our platform months ahead of schedule.',
+        'Thank you very much for your continued cooperation, dedication and mastery in your work. It has been a pleasure working with you, and I greatly appreciate your professionalism and keenness to always provide the best. Your commitment to quality and dedication to work makes dealing with you a wonderful experience, and I am very grateful for that. I look forward to more fruitful cooperation in the future. Thank you again, and I wish you all the best and success! My regards and appreciation',
       rating: 5,
       color: 'from-purple-500 to-pink-500',
       glow: 'purple',
@@ -90,7 +90,7 @@ export default function WhyChooseUs() {
       company: 'Global Solutions',
       image: '/placeholder.svg?height=80&width=80',
       quote:
-        'The team at QuantumKit delivered a complex AI integration that our previous developers said was impossible. Their problem-solving abilities and technical knowledge are unmatched.',
+        'Quantum team exceeded my expectations with detailed and bug-free software delivery. Their deep understanding, proactive communication, and high level of cooperation made working with them a pleasure. Highly recommended!.',
       rating: 5,
       color: 'from-amber-500 to-orange-400',
       glow: 'amber',
