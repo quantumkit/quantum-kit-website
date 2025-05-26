@@ -18,10 +18,11 @@ import Image from 'next/image';
 
 const projects = [
   {
-    title: 'NexusAI Platform',
+    title: 'skills-palace',
     description:
-      'An AI-powered analytics platform that helps businesses make data-driven decisions through advanced machine learning algorithms.',
-    image: '/placeholder.svg?height=600&width=800',
+      'An AI-powered  platform that helps student at any grade level and help them improve their skill',
+    image: '/skill-palace.png',
+    background: 'bg-blue-500',
     tags: ['AI', 'Machine Learning', 'Web App'],
   },
   {
@@ -123,12 +124,16 @@ export default function Projects() {
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
               <Card className="h-full overflow-hidden border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:shadow-md hover:border-primary/30">
-                <div className="relative h-48 overflow-hidden">
+                <div
+                  className={`relative h-48 overflow-hidden ${
+                    project.background || 'bg-blue-500'
+                  }`}
+                >
                   <Image
                     src={project.image || '/placeholder.svg'}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain w-[80%] h-[90%] transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <div className="flex flex-wrap gap-2">
