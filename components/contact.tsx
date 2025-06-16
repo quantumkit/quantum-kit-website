@@ -144,7 +144,7 @@ export default function Contact() {
                   <div>
                     <h4 className="font-medium mb-1">Location</h4>
                     <p className="text-foreground/70">
-                      123 Innovation Drive, Tech City, CA 94103
+                      Addis Ababa, Ethiopia
                     </p>
                   </div>
                 </div>

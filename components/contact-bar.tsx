@@ -41,7 +41,7 @@ export default function ContactBar() {
                 <div className="bg-white/20 rounded-full p-1">
                   <MapPin className="h-3 w-3" />
                 </div>
-                <span>123 Innovation Drive, Tech City</span>
+                <span>Addis Ababa, Ethiopia</span>
               </div>
             )}
 
