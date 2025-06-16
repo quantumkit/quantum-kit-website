@@ -2,7 +2,15 @@ import type { NextConfig } from 'next';
 import { resolve } from 'path';
 
 const isProd = process.env.NODE_ENV === 'production';
-const basePath = isProd ? process.env.PAGES_BASE_PATH : '';
+let basePath = isProd ? process.env.PAGES_BASE_PATH || '' : '';
+
+/**
+ * ✅ Ensure basePath starts with a slash
+ * or is a full URL
+ */
+if (basePath && !basePath.startsWith('/') && !basePath.startsWith('http')) {
+  basePath = `/${basePath}`;
+}
 
 const nextConfig: NextConfig = {
   transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
@@ -26,7 +34,7 @@ const nextConfig: NextConfig = {
   },
   output: 'export',
   basePath,
-  assetPrefix: `${basePath}`,
+  assetPrefix: basePath || '/',
 };
 
 export default nextConfig;
